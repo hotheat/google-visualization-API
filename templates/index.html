@@ -1,0 +1,30 @@
+<html>
+    <script src="https://www.google.com.hk/jsapi" type="text/javascript"></script>
+    <script>
+        google.load('visualization', '1', {packages:['geochart', 'table']})
+        google.setOnLoadCallback(drawMap)
+        function drawMap(){
+            var json_data = new google.visualization.DataTable({{json}}, 0.6)
+            var options = {colorAxis:{colors:['#eee', 'green']}}
+            var mymap = new google.visualization.GeoChart(
+                document.getElementById('map_div')
+            )
+            mymap.draw(json_data, {showRowNumber:true})
+        }
+    </script>
+    <body>
+        <h1>Median Monthly Disposable Salary World Counties</h1>
+        <div id="map_div"></div>
+        <hr />
+        <div id="table_div"></div>
+        <div id="source">
+            <hr />
+            <small>
+                Source:
+                <a href="http://wwww.numbeo.com/cost-of-living/prices_by_country.jsp?displayCurrency=EUR&itemId=105">
+                http://www.numbeo.com/cost-of-living/prices_by_country.jsp?displayCurrency=EUR&itemId=105
+                </a>
+            </small>
+        </div>
+    </body>
+</html>
